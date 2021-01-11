@@ -4,3 +4,32 @@
   min-height: 100vh;
   background: linear-gradient(180deg, $third 0%, $primary 100%);
 }
+
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 557px;
+}
+
+.layoutText {
+  width: 505px;
+}
+
+.textTitle {
+  font-family: Karla;
+  font-style: normal;
+  font-size: 70px;
+  line-height: 84px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+}
+
+.mainText {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 37px;
+  margin-bottom: 15px;
+}

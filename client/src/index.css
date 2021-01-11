@@ -1,9 +1,18 @@
+@font-face {
+  font-family: 'Karla';
+  src: url('../fonts/Karla.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
+body {
+  font-family: 'Karla', sans-serif;
 }
