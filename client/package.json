@@ -10,7 +10,9 @@
   "author": "Ruzil <ruzil33@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/hookrouter": "2.2.3",
     "classnames": "^2.2.6",
+    "hookrouter": "1.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
