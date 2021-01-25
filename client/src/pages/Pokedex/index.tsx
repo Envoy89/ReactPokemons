@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import config from '../../config';
 
 interface IData {
   total: number;
@@ -17,7 +18,8 @@ const usePokemons = () => {
     const getPokemons = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons');
+        const url = `${config.client.server.protocol}://${config.client.server.host}${config.client.endpoint.getPokemons.uri.pathname}`;
+        const response = await fetch(url);
         const result = await response.json();
 
         setData(result);
@@ -52,7 +54,7 @@ const PokedexPage = () => {
     <div>
       <div>Pokedex!!! {data && data.total}</div>
       <div>
-        <ul>{data && data.pokemons.map((item) => <li>{item.name}</li>)}</ul>
+        <ul>{data && data.pokemons.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
       </div>
     </div>
   );
