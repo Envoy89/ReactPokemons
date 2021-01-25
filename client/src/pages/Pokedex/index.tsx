@@ -1,44 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import req from '../../utils/request';
-
-interface IData {
-  total: number;
-  pokemons: any[];
-}
-
-const usePokemons = () => {
-  const [data, setData] = useState<IData>({
-    total: 0,
-    pokemons: [],
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setIsLoading(true);
-      try {
-        const result = await req('getPokemons');
-
-        setData(result);
-      } catch (e) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isError,
-  };
-};
+import React from 'react';
+import useData from '../../hooks/getData';
 
 const PokedexPage = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const { data, isLoading, isError } = useData('getPokemons');
 
   if (isLoading) {
     return <div>Loading...</div>;
