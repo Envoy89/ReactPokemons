@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import config from '../../config';
+import req from '../../utils/request';
 
 interface IData {
   total: number;
@@ -18,9 +18,7 @@ const usePokemons = () => {
     const getPokemons = async () => {
       setIsLoading(true);
       try {
-        const url = `${config.client.server.protocol}://${config.client.server.host}${config.client.endpoint.getPokemons.uri.pathname}`;
-        const response = await fetch(url);
-        const result = await response.json();
+        const result = await req('getPokemons');
 
         setData(result);
       } catch (e) {
