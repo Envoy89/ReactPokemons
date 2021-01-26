@@ -29,6 +29,8 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    '@typescript-eslint/camelcase': 'off',
+    camelcase: 'off',
   },
   settings: {
     'import/resolver': {
