@@ -1,4 +1,21 @@
-const config = {
+interface IConfig {
+  client: {
+    server: {
+      protocol: string;
+      host: string;
+    };
+    endpoint: {
+      [key: string]: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
+    };
+  };
+}
+
+const config: IConfig = {
   client: {
     server: {
       protocol: 'http',
@@ -9,6 +26,12 @@ const config = {
         method: 'GET',
         uri: {
           pathname: '/api/v1/pokemons',
+        },
+      },
+      getPokemon: {
+        method: 'GET',
+        uri: {
+          pathname: '/api/v1/pokemon/{id}',
         },
       },
     },
