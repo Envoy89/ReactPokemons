@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import useData from '../../hooks/getData';
 import useDebounce from '../../hooks/useDebounce';
 import { IPokemons, IPokemon } from '../../interface/pokedex';
+import PokemonCard from '../../components/PokemonCard';
+
+import s from './Pokedex.module.scss';
 
 interface IQuery {
   limit: number;
@@ -19,8 +22,8 @@ const PokedexPage = () => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setQuery((s) => ({
-      ...s,
+    setQuery((elem) => ({
+      ...elem,
       name: e.target.value,
     }));
   };
@@ -34,13 +37,30 @@ const PokedexPage = () => {
   }
 
   return (
-    <div>
-      <div>
-        <input type="text" value={searchValue} onChange={handleOnChange} />
-      </div>
-      <div>Pokedex!!! {data && data.total}</div>
-      <div>
-        <ul>{data && data.pokemons.map((item: IPokemon) => <li key={item.name}>{item.name}</li>)}</ul>
+    <div className={s.root}>
+      <div className={s.title}>800 Pokemons for you to choose your favorite</div>
+      <input
+        className={s.searchInput}
+        type="text"
+        value={searchValue}
+        onChange={handleOnChange}
+        placeholder="Encuentra tu pokémon..."
+      />
+      <div className={s.content}>
+        <div className={s.pokemons}>
+          {data &&
+            data.pokemons.map((item: IPokemon) => (
+              <div className={s.pokemon}>
+                <PokemonCard
+                  name={item.name}
+                  attack={item.stats.attack}
+                  defense={item.stats.defense}
+                  img={item.img}
+                  types={item.types}
+                />
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import { navigate } from 'hookrouter';
 import React from 'react';
 import Button from '../../components/Button';
-import Footer from '../../components/Footer';
 import Layout from '../../components/Layout';
 import Parallax from '../../components/Parallax';
 import { LinkEnum } from '../../routes';
@@ -20,7 +19,6 @@ const HomePage = () => (
       </div>
       <Parallax />
     </Layout>
-    <Footer />
   </div>
 );
 

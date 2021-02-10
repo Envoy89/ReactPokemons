@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.root {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  margin-top: 25px;
+
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: $dark;
+}
+
+.searchInput {
+  height: 53px;
+  width: 1088px;
+  border-radius: 40px;
+  box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+  background: $white;
+  margin-left: 176px;
+}
+
+.pokemons {
+  display: inline;
+}
+
+.pokemon {
+  float: left;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding-left: 155px;
+}

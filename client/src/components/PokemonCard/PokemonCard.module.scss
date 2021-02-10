@@ -1,0 +1,78 @@
+@import '../../variables';
+
+.root {
+  width: 352.25px;
+  height: 136.86px;
+  background: $white;
+  border-radius: 8px;
+  filter: drop-shadow(4px 4px 4px rgba(33, 33, 33, 0.1));
+  margin: 15px;
+}
+
+.content {
+  height: 136.86px;
+  width: calc(352.25px - 232.25px);
+  margin: 0;
+  float: left;
+  padding: 10px 0 0 5px;
+}
+
+.title {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: $dark;
+  text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  margin-bottom: 10px;
+}
+
+.inlinePropertiesContainer {
+  display: inline;
+}
+
+.ellipse {
+  height: 37.95px;
+  width: 36.04px;
+  border-radius: 50%;
+  border: 3px solid $dark;
+  padding: 6px 0 0 5px;
+}
+
+.inlineProperty {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
+.statsName {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #4b4b4b;
+}
+
+.type {
+  background: #73d677;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  padding: 5px;
+  color: #212121;
+}
+
+.pokemonImg {
+  width: 232.25px;
+  height: 136.86px;
+  background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
+  border-radius: 0px 8px 8px 0px;
+}
