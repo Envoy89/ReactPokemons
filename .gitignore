@@ -5,4 +5,6 @@ node_modules/
 
 **/**.d.ts
 
+**/yarn-error.log
+
 !client/src/custom.d.ts
