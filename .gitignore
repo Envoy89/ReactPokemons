@@ -9,4 +9,4 @@ node_modules/
 
 !client/src/custom.d.ts
 
-**/dist/
+dist/
