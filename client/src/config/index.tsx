@@ -19,7 +19,7 @@ const config: IConfig = {
   client: {
     server: {
       protocol: 'http',
-      host: 'zar.hosthot.ru',
+      host: 'localhost:3001',
     },
     endpoint: {
       getPokemons: {

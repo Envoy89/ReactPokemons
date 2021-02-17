@@ -1,10 +1,11 @@
-import express from 'express';
-import router from './routes/api';
-import bodyParser from 'body-parser';
+import express from "express";
+import router from "./routes/api";
+import bodyParser from "body-parser";
+import path from "path";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('static'));
+app.use(express.static(path.resolve("./dist/static")));
 app.use(router);
 
 const port = 3000;
