@@ -1,3 +1,8 @@
-.header {
-    font-size: 64px;
+@import './variables';
+
+.content {
+  height: calc(100% - #{$header-height + $footer-height});
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
