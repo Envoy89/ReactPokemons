@@ -1,5 +1,9 @@
 @import '../../variables';
 
+$teamWidth: 50%;
+$teamHeight: 50%;
+$textHeight: 70vh;
+
 .root {
   background-color: $danger;
   height: 100vh;
@@ -8,26 +12,50 @@
 }
 
 .teamRocketPng {
-  $width: 60%;
-  $height: 60%;
-
   position: absolute;
-  width: $width;
-  height: $height;
-  top: calc(calc(100% - #{$width}) / 2);
-  left: calc(calc(100% - #{$height}) / 2);
+  width: $teamWidth;
+  height: $teamHeight;
+  top: calc(calc(100% - #{$teamHeight}) / 4);
+  left: calc(calc(100% - #{$teamWidth}) / 2);
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .notFoundText {
-  $height: 100vh;
-
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
-  font-size: $height;
-  line-height: $height;
+  font-size: $textHeight;
+  line-height: $textHeight;
   display: flex;
   align-items: center;
   letter-spacing: 4px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  z-index: 1;
+}
+
+.whiteText {
+  color: white;
+}
+
+.button {
+  $width: 250px;
+
+  position: absolute;
+  width: $width;
+  top: calc(calc(calc(100% - #{$teamHeight}) / 2) + #{$teamHeight + 5});
+  left: calc(calc(calc(calc(100% - #{$teamWidth}) / 2) + #{$teamWidth / 2}) - #{$width / 2});
 }
