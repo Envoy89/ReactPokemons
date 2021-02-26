@@ -13,6 +13,7 @@ router.get(
   (req: Request<{}, {}, {}, IPokemonsRequest>, res: Response) => {
     try {
       const filters: IPokemonsRequest = {
+        ...req.query,
         name: req.query.name && req.query.name,
         limit: req.query.limit && +req.query.limit,
         offset: req.query.offset && +req.query.offset,

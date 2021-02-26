@@ -2,6 +2,7 @@ export interface IPokemonsRequest {
   limit?: number;
   offset?: number;
   name?: string;
+  type?: string;
 }
 
 export interface IPokemonsResponse {

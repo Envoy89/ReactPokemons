@@ -15,12 +15,13 @@ interface IQuery {
 
 const PokedexPage = () => {
   const [searchValue, setSearchValue] = useState<string>('');
+  const [pokemonType, setPokemonType] = useState<string>('');
   const [query, setQuery] = useState<IQuery>({
     limit: 12,
   });
-  const debouncedValue = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce<string>(searchValue, 500);
 
-  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debouncedValue]);
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debouncedValue, pokemonType]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -31,6 +32,7 @@ const PokedexPage = () => {
   };
 
   const handleTypeFilterChange = (value: string) => {
+    setPokemonType(value);
     setQuery((elem) => ({
       ...elem,
       type: value,
@@ -56,7 +58,7 @@ const PokedexPage = () => {
         placeholder="Encuentra tu pokémon..."
       />
       <div>
-        <PokemonTypeFilter handleChange={handleTypeFilterChange} />
+        <PokemonTypeFilter value={pokemonType} handleChange={handleTypeFilterChange} />
       </div>
       <div className={s.content}>
         <div className={s.pokemons}>

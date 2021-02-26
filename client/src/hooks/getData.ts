@@ -21,7 +21,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
       }
     };
     getData();
-  }, [...deps, endpoint, query]);
+  }, deps);
 
   return {
     data,

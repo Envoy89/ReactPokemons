@@ -16,7 +16,7 @@ class Pokemons {
   }
 
   getFilteredPokemons(filter: IPokemonsRequest): IPokemonsResponse {
-    const { name, limit = 12, offset = 0 } = filter;
+    const { name, limit = 12, offset = 0, type } = filter;
 
     const result: IPokemonsResponse = {
       total: this.data.total,
@@ -27,7 +27,9 @@ class Pokemons {
     };
 
     const pokemons = this.data.pokemons.filter(
-      (elem) => !name || elem.name_clean.includes(name)
+      (elem) =>
+        (!name || elem.name_clean.includes(name)) &&
+        (!type || elem.types.includes(type))
     );
     for (let i = offset; i < limit + offset; i++) {
       if (pokemons[i]) {

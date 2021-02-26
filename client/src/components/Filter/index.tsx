@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export interface IFilterValue {
   id: string;
@@ -6,24 +6,23 @@ export interface IFilterValue {
 }
 
 interface FilterProps {
+  value: string;
   data: IFilterValue[];
   handleChange: (value: string) => void;
 }
 
-const Filter: React.FC<FilterProps> = ({ data, handleChange }) => {
-  const selectedValue: string = data[0] ? data[0].value : '';
-  const [value, setValue] = useState<string>(selectedValue);
+const Filter: React.FC<FilterProps> = ({ value, data, handleChange }) => {
+  const selectedValue: string = value === '' && data[0] ? data[0].value : value;
 
   const options = data.map((item) => <option value={item.id}>{item.value}</option>);
 
   const internalHandleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const targetValue = e.target.value;
-    setValue(targetValue);
     handleChange(targetValue);
   };
 
   return (
-    <select value={value} onChange={internalHandleChange}>
+    <select value={selectedValue} onChange={internalHandleChange}>
       {options}
     </select>
   );
