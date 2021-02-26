@@ -5,10 +5,12 @@ import { IPokemons, IPokemon } from '../../interface/pokedex';
 import PokemonCard from '../../components/PokemonCard';
 
 import s from './Pokedex.module.scss';
+import PokemonTypeFilter from './PokemonTypeFilter';
 
 interface IQuery {
   limit: number;
   name?: string;
+  type?: string;
 }
 
 const PokedexPage = () => {
@@ -25,6 +27,13 @@ const PokedexPage = () => {
     setQuery((elem) => ({
       ...elem,
       name: e.target.value,
+    }));
+  };
+
+  const handleTypeFilterChange = (value: string) => {
+    setQuery((elem) => ({
+      ...elem,
+      type: value,
     }));
   };
 
@@ -46,6 +55,9 @@ const PokedexPage = () => {
         onChange={handleOnChange}
         placeholder="Encuentra tu pokémon..."
       />
+      <div>
+        <PokemonTypeFilter handleChange={handleTypeFilterChange} />
+      </div>
       <div className={s.content}>
         <div className={s.pokemons}>
           {data &&
