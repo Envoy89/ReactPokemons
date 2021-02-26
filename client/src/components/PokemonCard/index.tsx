@@ -29,7 +29,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, attack, defense, img, t
         ))}
       </div>
     </div>
-    <img className={s.pokemonImg} src={img} />
+    <img className={s.pokemonImg} src={img} alt="Изображение покемона" />
   </div>
 );
 

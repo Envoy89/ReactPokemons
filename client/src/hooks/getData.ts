@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import req from '../utils/request';
 
@@ -20,7 +21,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
       }
     };
     getData();
-  }, deps);
+  }, [...deps, endpoint, query]);
 
   return {
     data,
