@@ -21,37 +21,37 @@ class Pokemons {
     const result: IPokemonsResponse = {
       total: this.data.total,
       count: 0,
-      offset: offset,
-      limit: limit,
+      offset,
+      limit,
       pokemons: [],
     };
 
-    const pokemons = this.data.pokemons.filter(
+    const pokemonList = this.data.pokemons.filter(
       (elem) =>
         (!name || elem.name_clean.includes(name)) &&
         (!type || elem.types.includes(type))
     );
     for (let i = offset; i < limit + offset; i++) {
-      if (pokemons[i]) {
-        result.pokemons.push(pokemons[i]);
+      if (pokemonList[i]) {
+        result.pokemons.push(pokemonList[i]);
         result.count++;
       }
     }
-    result.total = pokemons.length;
+    result.total = pokemonList.length;
     return result;
   }
 
   getAllTypes(): IPokemonTypes[] {
     const types: IPokemonTypes[] = [];
 
-    const selectTypes: Set<String> = new Set();
+    const selectTypes: Set<string> = new Set();
     this.data.pokemons.forEach((value) => {
-      value.types.forEach((value) => {
-        if (!selectTypes.has(value)) {
-          selectTypes.add(value);
+      value.types.forEach((val) => {
+        if (!selectTypes.has(val)) {
+          selectTypes.add(val);
           types.push({
-            id: value,
-            value: value,
+            id: val,
+            value: val,
           });
         }
       });

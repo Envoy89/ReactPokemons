@@ -25,7 +25,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, attack, defense, img, t
       </div>
       <div className={s.inlinePropertiesContainer}>
         {types.map((item) => (
-          <div className={cn(s.type, s.inlineProperty)}>{item}</div>
+          <div key={item} className={cn(s.type, s.inlineProperty)}>
+            {item}
+          </div>
         ))}
       </div>
     </div>

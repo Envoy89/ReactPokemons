@@ -19,7 +19,8 @@ const config: IConfig = {
   client: {
     server: {
       protocol: 'http',
-      host: 'localhost:3001',
+      // eslint-disable-next-line no-restricted-globals
+      host: `${location.hostname}:${location.port}`,
     },
     endpoint: {
       getPokemons: {

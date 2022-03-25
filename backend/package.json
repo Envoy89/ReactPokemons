@@ -5,12 +5,12 @@
   "main": "dist/app.js",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-static-files": "copyfiles -f ./static/**/*.html dist/static",
-    "copy-database-files": "copyfiles -f ./static/pokemons.json dist",
-    "start": "yarn clean && tsc && yarn copy-database-files && node dist/app.js",
+    "copy-static-files": "copyfiles -s -f ../client/dist/** dist/static",
+    "copy-database-files": "copyfiles -s -f ./static/pokemons.json dist",
+    "start": "yarn clean && tsc && yarn copy-database-files && yarn copy-static-files && node dist/app.js",
     "start:watch": "nodemon",
-    "build": "yarn clean && tsc && yarn copy-database-files && yarn copy-static-files",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarn clean && tsc && yarn copy-database-files",
+    "start:prod": "node dist/app.js"
   },
   "author": "Ruzil <ruzil33@gmail.com>",
   "license": "MIT",
