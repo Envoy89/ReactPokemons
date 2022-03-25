@@ -17,6 +17,7 @@ interface IGeneralMenu {
   title: string;
   link: LinkEnum;
   component: (props: PropsWithChildren<any>) => JSX.Element;
+  disable?: boolean;
 }
 
 export const GENERAL_MENU: IGeneralMenu[] = [
@@ -34,11 +35,13 @@ export const GENERAL_MENU: IGeneralMenu[] = [
     title: 'Legendaries',
     link: LinkEnum.LEGENDARIES,
     component: () => <LegendariesPage />,
+    disable: true,
   },
   {
     title: 'Documentation',
     link: LinkEnum.DOCUMENTATION,
     component: () => <DocumentationPage />,
+    disable: true,
   },
 ];
 
@@ -55,7 +58,9 @@ interface IAccMenu {
 }
 
 const routes = [...GENERAL_MENU, ...SECOND_ROUTES].reduce((acc: IAccMenu, item: IGeneralMenu) => {
-  acc[item.link] = item.component;
+  if (!item.disable) {
+    acc[item.link] = item.component;
+  }
   return acc;
 }, {});
 
